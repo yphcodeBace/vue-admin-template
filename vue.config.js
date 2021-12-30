@@ -36,7 +36,21 @@ module.exports = {
       warnings: false,
       errors: true
     },
-    before: require('./mock/mock-server.js')
+    proxy: {
+      '/sso': {
+        // target: `http://123.60.38.132:8083`, // 这个链接是要代理到的api地址
+        target: `http://123.60.38.132:8192`, // 这个链接是要代理到的api地址
+        changeOrigin: true,
+        logLevel: 'debug' // 查看重写地址
+        // pathRewrite: {
+        //   // 重写路径
+        //   // '^/api'是一个正则表达式，表示要匹配请求的url中，全部'http://localhost:9528/api' 转接为 'http://localhost:9528/secda000/api'
+        //   // '^/api': '/api',
+        //   '^/*': ''
+        // }
+      }
+    },
+    // before: require('./mock/mock-server.js')
   },
   configureWebpack: {
     // provide the app's title in webpack's name field, so that
@@ -87,7 +101,7 @@ module.exports = {
             .plugin('ScriptExtHtmlWebpackPlugin')
             .after('html')
             .use('script-ext-html-webpack-plugin', [{
-            // `runtime` must same as runtimeChunk name. default is `runtime`
+              // `runtime` must same as runtimeChunk name. default is `runtime`
               inline: /runtime\..*\.js$/
             }])
             .end()

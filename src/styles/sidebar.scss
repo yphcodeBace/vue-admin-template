@@ -76,8 +76,24 @@
       }
     }
 
+    .el-menu-item.is-active{
+      //background-color: $menuActiveBg !important;
+      //background-color: none;
+    }
+
+    .is-active{
+      background-color: transparent;
+    }
+
+    .is-active:hover{
+      background-color: #1890FF;
+    }
+
     .is-active>.el-submenu__title {
       color: $subMenuActiveText !important;
+      &:hover {
+        background-color: $menuHover !important;
+      }
     }
 
     & .nest-menu .el-submenu>.el-submenu__title,
@@ -137,24 +153,24 @@
       }
     }
 
-    .el-menu--collapse {
-      .el-submenu {
-        &>.el-submenu__title {
-          &>span {
-            height: 0;
-            width: 0;
-            overflow: hidden;
-            visibility: hidden;
-            display: inline-block;
-          }
-        }
-      }
-    }
+    //.el-menu--collapse {
+    //  .el-submenu {
+    //    &>.el-submenu__title {
+    //      &>span {
+    //        height: 0;
+    //        width: 0;
+    //        overflow: hidden;
+    //        visibility: hidden;
+    //        display: inline-block;
+    //      }
+    //    }
+    //  }
+    //}
   }
 
-  .el-menu--collapse .el-menu .el-submenu {
-    min-width: $sideBarWidth !important;
-  }
+  //.el-menu--collapse .el-menu .el-submenu {
+  //  min-width: $sideBarWidth !important;
+  //}
 
   // mobile responsive
   .mobile {

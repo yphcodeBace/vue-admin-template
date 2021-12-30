@@ -68,11 +68,12 @@ export default {
   },
   methods: {
     fetchData() {
-      this.listLoading = true
-      getList().then(response => {
-        this.list = response.data.items
-        this.listLoading = false
-      })
+      this.listLoading = false
+      // this.listLoading = true
+      // getList().then(response => {
+      //   this.list = response.data.items
+      //   this.listLoading = false
+      // })
     }
   }
 }

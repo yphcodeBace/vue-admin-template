@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard-container">
-    <div class="dashboard-text">name: {{ name }}</div>
+    <iframe src="http://123.60.38.132:9002/WarehouseArchives"></iframe>
   </div>
 </template>
 
@@ -20,7 +20,15 @@ export default {
 <style lang="scss" scoped>
 .dashboard {
   &-container {
-    margin: 30px;
+    //border: 1px solid red;
+    box-sizing: border-box;
+    margin: 0 8px 8px;
+    background-color: #FFFFFF;
+    height: calc(100vh - 130px);
+    iframe{
+      width: 100%;
+      height: 100%;
+    }
   }
   &-text {
     font-size: 30px;

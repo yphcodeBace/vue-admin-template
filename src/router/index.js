@@ -32,8 +32,32 @@ import Layout from '@/layout'
  */
 export const constantRoutes = [
   {
-    path: '/login',
+    path: '/yLogin',
     component: () => import('@/views/login/index'),
+    hidden: true
+  },
+
+  {
+    path: '/login',
+    component: () => import('@/views/login/login1'),
+    hidden: true
+  },
+
+  {
+    path: '/login2',
+    component: () => import('@/views/login/login2'),
+    hidden: true
+  },
+
+  {
+    path: '/forgetpswd',
+    component: () => import('@/views/forgetpswd/index'),
+    hidden: true
+  },
+
+  {
+    path: '/forgetpswd2',
+    component: () => import('@/views/forgetpswd/index2'),
     hidden: true
   },
 
@@ -46,116 +70,106 @@ export const constantRoutes = [
   {
     path: '/',
     component: Layout,
-    redirect: '/dashboard',
+    redirect: '/index',
     children: [{
-      path: 'dashboard',
-      name: 'Dashboard',
+      path: 'index',
+      name: '首页',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard' }
+      meta: { title: 'Index', icon: 'dashboard' }
     }]
   },
-
   {
-    path: '/example',
+    path: '/',
     component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: 'Example', icon: 'el-icon-s-help' },
+    redirect: '/form',
     children: [
       {
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
-      },
-      {
-        path: 'tree',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
-      }
-    ]
-  },
-
-  {
-    path: '/form',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
+        path: 'form',
         name: 'Form',
         component: () => import('@/views/form/index'),
         meta: { title: 'Form', icon: 'form' }
       }
     ]
   },
-
   {
-    path: '/nested',
+    path: '/',
     component: Layout,
-    redirect: '/nested/menu1',
-    name: 'Nested',
-    meta: {
-      title: 'Nested',
-      icon: 'nested'
-    },
+    redirect: '/table',
     children: [
       {
-        path: 'menu1',
-        component: () => import('@/views/nested/menu1/index'), // Parent router-view
-        name: 'Menu1',
-        meta: { title: 'Menu1' },
-        children: [
-          {
-            path: 'menu1-1',
-            component: () => import('@/views/nested/menu1/menu1-1'),
-            name: 'Menu1-1',
-            meta: { title: 'Menu1-1' }
-          },
-          {
-            path: 'menu1-2',
-            component: () => import('@/views/nested/menu1/menu1-2'),
-            name: 'Menu1-2',
-            meta: { title: 'Menu1-2' },
-            children: [
-              {
-                path: 'menu1-2-1',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
-                name: 'Menu1-2-1',
-                meta: { title: 'Menu1-2-1' }
-              },
-              {
-                path: 'menu1-2-2',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
-                name: 'Menu1-2-2',
-                meta: { title: 'Menu1-2-2' }
-              }
-            ]
-          },
-          {
-            path: 'menu1-3',
-            component: () => import('@/views/nested/menu1/menu1-3'),
-            name: 'Menu1-3',
-            meta: { title: 'Menu1-3' }
-          }
-        ]
-      },
+        path: 'table',
+        name: '商品',
+        component: () => import('@/views/table/index'),
+        meta: { title: 'Table', icon: 'form' }
+      }
+    ]
+  },
+  {
+    path: '/',
+    component: Layout,
+    redirect: '/sales',
+    children: [
       {
-        path: 'menu2',
-        component: () => import('@/views/nested/menu2/index'),
-        name: 'Menu2',
-        meta: { title: 'menu2' }
+        path: 'sales',
+        name: '销售',
+        component: () => import('@/views/tree/index'),
+        meta: { title: '销售', icon: 'form' }
       }
     ]
   },
 
   {
-    path: 'external-link',
+    path: '/',
     component: Layout,
+    redirect: '/order1',
     children: [
       {
-        path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
-        meta: { title: 'External Link', icon: 'link' }
+        path: 'order1',
+        name: '订单管理1',
+        component: () => import('@/views/order/page1'),
+        meta: { title: '销售', icon: 'form' }
+      }
+    ]
+  },
+
+  {
+    path: '/',
+    component: Layout,
+    redirect: '/order2',
+    children: [
+      {
+        path: 'order2',
+        name: '订单管理2',
+        component: () => import('@/views/order/page2'),
+        meta: { title: '销售', icon: 'form' }
+      }
+    ]
+  },
+
+  {
+    path: '/',
+    component: Layout,
+    redirect: '/stock1',
+    children: [
+      {
+        path: '/stock1',
+        name: '备货管理1',
+        component: () => import('@/views/stock/page1'),
+        meta: { title: '销售', icon: 'form' }
+      }
+    ]
+  },
+
+  {
+    path: '/',
+    component: Layout,
+    redirect: '/stock2',
+    children: [
+      {
+        path: 'stock2',
+        name: '备货管理2',
+        component: () => import('@/views/stock/page2'),
+        meta: { title: '销售', icon: 'form' }
       }
     ]
   },
